@@ -1,0 +1,97 @@
+/* =====================================
+   STELLAFY WEBSITE STYLES
+   Small purchases. Brighter futures.
+   ===================================== */
+
+
+/* BODY: Controls the appearance of the whole webpage. */
+body {
+    /* Choose the font used for website text. */
+    font-family: Arial, sans-serif;
+
+    /* Set a light greenish background colour. */
+    background-color: #F4F8F6;
+
+    /* Set the default text colour. */
+    color: #183D35;
+
+    /* Add space around the webpage content. */
+    padding: 40px;
+
+    /* Place text in the centre of the page. */
+    text-align: center;
+}
+
+
+/* H1: Style the main "Welcome to Stellafy!" heading. */
+h1 {
+    /* Increase the heading size. */
+    font-size: 40px;
+
+    /* Set the heading colour to dark green. */
+    color: #176B53;
+
+    /* Add space below the heading. */
+    margin-bottom: 20px;
+}
+
+
+/* H2: Style secondary headings like "Shop With Purpose". */
+h2 {
+    /* Make the secondary heading slightly smaller than h1. */
+    font-size: 28px;
+
+    /* Use a dark green colour. */
+    color: #176B53;
+
+    /* Add space above the heading. */
+    margin-top: 40px;
+}
+
+
+/* P: Style all paragraphs on the webpage. */
+p {
+    /* Set the paragraph text size. */
+    font-size: 18px;
+
+    /* Increase spacing between lines to improve readability. */
+    line-height: 1.6;
+
+    /* Add space below each paragraph. */
+    margin-bottom: 20px;
+}
+
+
+/* BUTTON: Style the Explore Products button. */
+button {
+    /* Set the button background to green. */
+    background-color: #176B53;
+
+    /* Make the button text white. */
+    color: white;
+
+    /* Add space inside the button. */
+    padding: 14px 28px;
+
+    /* Remove the default border. */
+    border: none;
+
+    /* Round the corners of the button. */
+    border-radius: 8px;
+
+    /* Set the text size. */
+    font-size: 16px;
+
+    /* Show a hand pointer when hovering over the button. */
+    cursor: pointer;
+
+    /* Make background colour changes appear smoothly. */
+    transition: background-color 0.3s ease;
+}
+
+
+/* BUTTON HOVER: Change the button when the mouse is over it. */
+button:hover {
+    /* Use a darker green when hovering. */
+    background-color: #104C3B;
+}
