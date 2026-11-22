@@ -1,45 +1,133 @@
 <!DOCTYPE html>
-<!-- Tell the browser that this document uses HTML5. -->
-
+<!-- Tell the browser we are using HTML5. -->
 <html lang="en">
-<!-- The html element contains the entire webpage. -->
 
 <head>
-    <!-- Information about the webpage goes here. -->
-
+    <!-- Set the text encoding. -->
     <meta charset="UTF-8">
-    <!-- Allows the browser to display text characters correctly. -->
 
+    <!-- Make the layout adapt to screen sizes. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Helps the webpage display properly on different screen sizes. -->
 
+    <!-- Set the browser tab title. -->
     <title>Stellafy | Small Purchases, Brighter Futures</title>
-    <!-- The title appears on the browser tab. -->
 
-    <!-- Load our CSS file to style the homepage. -->
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
+    <!-- Connect our CSS stylesheet to this HTML page. -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
-    <!-- The body contains everything visitors see on the webpage. -->
 
-    <h1>Welcome to Stellafy!</h1>
-    <!-- h1 represents the main heading. -->
+    <!-- NAVIGATION: Contains the logo and navigation links. -->
+    <nav class="navbar">
 
-    <p>Small purchases. Brighter futures.</p>
-    <!-- p represents a paragraph of text. -->
+        <!-- Display the Stellafy brand name. -->
+        <h2 class="logo">✦ Stellafy</h2>
 
-    <h2>Shop With Purpose</h2>
-    <!-- h2 represents a second-level heading. -->
+        <!-- Group the navigation links together. -->
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="#products">Products</a>
+            <a href="#causes">Causes</a>
+            <a href="#cart">Cart</a>
+        </div>
 
-    <p>
-        Every purchase can help support education,
-        protect the environment, and strengthen communities.
-    </p>
+    </nav>
 
-    <button>Explore Products</button>
-    <!-- A button visitors will eventually use to browse products. -->
+    <!-- MAIN: Contains the primary content of the homepage. -->
+    <main>
+
+        <!-- HERO: The introductory section of the homepage. -->
+        <section class="hero">
+
+            <h1>Welcome to Stellafy!</h1>
+
+            <p>Small purchases. Brighter futures.</p>
+
+            <h2>Shop With Purpose</h2>
+
+            <p>
+                Every purchase can help support education,
+                protect the environment, and strengthen communities.
+            </p>
+
+            <!-- Link visitors to the products section of the homepage. -->
+            <a href="#products" class="shop-button">Explore Products</a>
+        </section>
+
+        <!-- PRODUCTS SECTION: Displays items available in Stellafy. -->
+<section id="products" class="products-section">
+
+    <!-- Heading for the product catalogue. -->
+    <h2>Explore Our Products</h2>
+
+    <!-- Explain the purpose of the catalogue. -->
+    <p>Shop everyday essentials and support meaningful causes.</p>
+
+    <!-- Container that will hold our product cards. -->
+    <div class="product-grid">
+
+        <!-- PRODUCT CARD: Our first sample product. -->
+        <article class="product-card">
+
+            <!-- Product information. -->
+            <h3>Reusable Water Bottle</h3>
+
+            <p>A reusable bottle for everyday hydration.</p>
+
+            <!-- Display the simulated product price. -->
+            <p class="price">$25.00</p>
+
+            <!-- Cart functionality will be added in Milestone 3. -->
+            <button type="button">Add to Cart</button>
+
+        </article>
+        <!-- PRODUCT 2: Reusable shopping bag. -->
+<article class="product-card">
+    <h3>Reusable Shopping Bag</h3>
+    <p>A durable bag for everyday shopping.</p>
+    <p class="price">$15.00</p>
+    <button type="button">Add to Cart</button>
+</article>
+
+<!-- PRODUCT 3: Notebook. -->
+<article class="product-card">
+    <h3>Eco-Friendly Notebook</h3>
+    <p>A notebook made with recycled paper.</p>
+    <p class="price">$12.00</p>
+    <button type="button">Add to Cart</button>
+</article>
+
+<!-- PRODUCT 4: Coffee mug. -->
+<article class="product-card">
+    <h3>Ceramic Coffee Mug</h3>
+    <p>A reusable mug for your favourite drinks.</p>
+    <p class="price">$20.00</p>
+    <button type="button">Add to Cart</button>
+</article>
+
+<!-- PRODUCT 5: Tote bag. -->
+<article class="product-card">
+    <h3>Cotton Tote Bag</h3>
+    <p>A lightweight bag for books and groceries.</p>
+    <p class="price">$18.00</p>
+    <button type="button">Add to Cart</button>
+</article>
+
+<!-- PRODUCT 6: Desk organizer. -->
+<article class="product-card">
+    <h3>Bamboo Desk Organizer</h3>
+    <p>Keep your study space neat and organized.</p>
+    <p class="price">$30.00</p>
+    <button type="button">Add to Cart</button>
+</article>
+
+
+    </div>
+
+</section>
+
+    </main>
+
 </body>
-
 </html>

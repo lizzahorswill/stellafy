@@ -1,97 +1,186 @@
-/* =====================================
-   STELLAFY WEBSITE STYLES
-   Small purchases. Brighter futures.
-   ===================================== */
+/* ==========================================
+   STELLAFY HOMEPAGE STYLES
+   ========================================== */
 
+/* Apply consistent sizing to every element. */
+* {
+    box-sizing: border-box;
+}
 
-/* BODY: Controls the appearance of the whole webpage. */
+/* Style the overall webpage. */
 body {
-    /* Choose the font used for website text. */
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
-
-    /* Set a light greenish background colour. */
     background-color: #F4F8F6;
-
-    /* Set the default text colour. */
     color: #183D35;
+}
 
-    /* Add space around the webpage content. */
-    padding: 40px;
+/* NAVBAR: Keep the logo and links on one row. */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 
-    /* Place text in the centre of the page. */
+    padding: 20px 6%;
+    background-color: white;
+    border-bottom: 1px solid #E2EBE6;
+}
+
+/* Style the Stellafy logo. */
+.logo {
+    margin: 0;
+    color: #176B53;
+    font-size: 24px;
+}
+
+/* Arrange navigation links horizontally. */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Style individual navigation links. */
+.nav-links a {
+    color: #183D35;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Change link colour when the mouse hovers. */
+.nav-links a:hover {
+    color: #176B53;
+}
+
+/* MAIN: Give the homepage content its own space. */
+main {
+    padding: 60px 6%;
+}
+
+/* HERO: Centre the introductory content. */
+.hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 30px;
     text-align: center;
 }
 
-
-/* H1: Style the main "Welcome to Stellafy!" heading. */
-h1 {
-    /* Increase the heading size. */
-    font-size: 40px;
-
-    /* Set the heading colour to dark green. */
+/* Style the main heading. */
+.hero h1 {
+    font-size: 42px;
     color: #176B53;
-
-    /* Add space below the heading. */
     margin-bottom: 20px;
 }
 
-
-/* H2: Style secondary headings like "Shop With Purpose". */
-h2 {
-    /* Make the secondary heading slightly smaller than h1. */
+/* Style the secondary heading. */
+.hero h2 {
     font-size: 28px;
-
-    /* Use a dark green colour. */
-    color: #176B53;
-
-    /* Add space above the heading. */
-    margin-top: 40px;
+    margin-top: 35px;
 }
 
-
-/* P: Style all paragraphs on the webpage. */
-p {
-    /* Set the paragraph text size. */
+/* Style paragraphs inside the hero section. */
+.hero p {
     font-size: 18px;
-
-    /* Increase spacing between lines to improve readability. */
     line-height: 1.6;
-
-    /* Add space below each paragraph. */
-    margin-bottom: 20px;
 }
 
-
-/* BUTTON: Style the Explore Products button. */
-button {
-    /* Set the button background to green. */
+/* Style the Explore Products button. */
+.hero button {
     background-color: #176B53;
-
-    /* Make the button text white. */
     color: white;
-
-    /* Add space inside the button. */
     padding: 14px 28px;
-
-    /* Remove the default border. */
+    margin-top: 20px;
     border: none;
-
-    /* Round the corners of the button. */
     border-radius: 8px;
-
-    /* Set the text size. */
     font-size: 16px;
-
-    /* Show a hand pointer when hovering over the button. */
     cursor: pointer;
-
-    /* Make background colour changes appear smoothly. */
-    transition: background-color 0.3s ease;
 }
 
-
-/* BUTTON HOVER: Change the button when the mouse is over it. */
-button:hover {
-    /* Use a darker green when hovering. */
+/* Darken the button when hovering over it. */
+.hero button:hover {
     background-color: #104C3B;
 }
+
+/* Adjust the layout for smaller screens. */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 30px 10px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+
+/* Style the Explore Products link like a button. */
+.shop-button {
+    display: inline-block;
+    background-color: #176B53;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+/* Darken the link when the mouse hovers over it. */
+.shop-button:hover {
+    background-color: #104C3B;
+}
+
+/* Add spacing around the products section. */
+.products-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* CSS Grid arranges product cards into columns. */
+.product-grid {
+    display: grid;
+
+    /* Automatically fit columns as space allows. */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    /* Add space between product cards. */
+    gap: 24px;
+
+    /* Separate the cards from the section heading. */
+    margin-top: 30px;
+}
+
+/* Style each product card. */
+.product-card {
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #E2EBE6;
+    text-align: left;
+}
+
+/* Style the product title. */
+.product-card h3 {
+    color: #176B53;
+    font-size: 20px;
+}
+
+/* Make product prices stand out. */
+.price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #183D35;
+}
+
