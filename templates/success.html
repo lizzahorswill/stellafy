@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Purchase Complete | Stellafy</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <main class="cart-page">
+
+        <h1>Thank You for Shopping With Stellafy!</h1>
+
+        <!-- Confirm that no actual payment was processed. -->
+        <p>Your simulated purchase was completed successfully.</p>
+
+        <!-- Display the customer's selected social cause. -->
+        <h2>Cause Supported</h2>
+        <p>{{ transaction.cause }}</p>
+
+        <!-- Show the financial impact of the purchase. -->
+        <h2>Your Social Impact</h2>
+
+        <p>Purchase Total:
+            ${{ "%.2f"|format(transaction.total) }}</p>
+
+        <p>Merchant Commission:
+            ${{ "%.2f"|format(transaction.commission) }}</p>
+
+        <p>Contribution to Cause:
+            ${{ "%.2f"|format(transaction.contribution) }}</p>
+
+        <p>Stellafy Revenue Before Expenses:
+            ${{ "%.2f"|format(transaction.revenue) }}</p>
+
+        <p>No real payment was processed.</p>
+
+        <a href="{{ url_for('home') }}" class="shop-button">
+            Continue Shopping
+        </a>
+
+    </main>
+
+</body>
+</html>

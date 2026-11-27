@@ -11,3 +11,15 @@ __pycache__/
 
 # Ignore Mac-generated folder metadata.
 .DS_Store
+
+# Local SQLite database
+instance/
+*.db
+
+# Python virtual environment and cache
+.venv/
+__pycache__/
+*.pyc
+
+# Local environment secrets
+.env

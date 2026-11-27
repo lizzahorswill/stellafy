@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart | Stellafy</title>
+
+    <!-- Reuse our existing stylesheet. -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <main class="cart-page">
+
+        <h1>Your Shopping Cart</h1>
+
+        <!-- If products exist, display them. -->
+        {% if cart_items %}
+
+            <!-- Loop through each selected product. -->
+            {% for item in cart_items %}
+
+                <article class="product-card">
+                    <h3>{{ item.name }}</h3>
+                    <p>Price: ${{ "%.2f"|format(item.price) }}</p>
+                    <p>Quantity: {{ item.quantity }}</p>
+                    <p>Subtotal: ${{ "%.2f"|format(item.subtotal) }}</p>
+                    <!-- Send a request to remove this specific product. -->
+<form action="{{ url_for('remove_from_cart', product_id=item.id) }}"
+      method="POST">
+
+    <!-- Submit the removal request to Flask. -->
+    <button type="submit">Remove from Cart</button>
+
+</form>
+
+                </article>
+
+            {% endfor %}
+
+            <h2>Total: ${{ "%.2f"|format(total) }}</h2>
+            <!-- Allow the customer to proceed to simulated checkout. -->
+            <a href="{{ url_for('checkout') }}" class="shop-button">
+            Proceed to Checkout
+            </a>
+
+        {% else %}
+
+            <!-- Show this message when the cart is empty. -->
+            <p>Your cart is empty.</p>
+
+        {% endif %}
+
+        <a href="{{ url_for('home') }}" class="shop-button">
+            Continue Shopping
+        </a>
+
+    </main>
+
+</body>
+</html>

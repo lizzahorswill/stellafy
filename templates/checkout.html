@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | Stellafy</title>
+
+    <!-- Load our existing website stylesheet. -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <main class="cart-page">
+
+        <h1>Simulated Checkout</h1>
+
+        <p>Your purchase supports a cause at no additional cost.</p>
+
+        <!-- Display the financial breakdown. -->
+        <article class="product-card">
+            <h2>Purchase Summary</h2>
+
+            <p>Purchase Total: ${{ "%.2f"|format(total) }}</p>
+
+            <p>Merchant Commission (10%):
+               ${{ "%.2f"|format(commission) }}</p>
+
+            <p>Cause Contribution (60% of commission):
+               ${{ "%.2f"|format(contribution) }}</p>
+
+            <p>Stellafy Revenue Before Expenses:
+               ${{ "%.2f"|format(revenue) }}</p>
+        </article>
+
+        <!-- Form for choosing the cause to support. -->
+        <form action="{{ url_for('checkout') }}" method="POST">
+
+            <h2>Select a Social Cause</h2>
+
+            <!-- Loop through the available causes. -->
+            {% for cause in causes %}
+
+                <p>
+                    <label>
+                        <input type="radio"
+                               name="cause"
+                               value="{{ cause }}"
+                               required>
+                        {{ cause }}
+                    </label>
+                </p>
+
+            {% endfor %}
+
+            <!-- Submit the simulated purchase. -->
+            <button type="submit">
+                Complete Simulated Purchase
+            </button>
+
+        </form>
+
+        <p>
+            <a href="{{ url_for('view_cart') }}">
+                Return to Cart
+            </a>
+        </p>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analytics Dashboard | Stellafy</title>
+
+    <!-- Reuse the Stellafy stylesheet. -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <main class="dashboard-page">
+
+        <h1>Stellafy Impact Dashboard</h1>
+        <p>All amounts represent simulated transactions.</p>
+
+        <!-- Summary of transaction activity. -->
+        <div class="product-grid">
+
+            <article class="product-card">
+                <h3>Total Transactions</h3>
+                <p class="price">{{ transaction_count }}</p>
+            </article>
+
+            <article class="product-card">
+                <h3>Total Sales</h3>
+                <p class="price">
+                    ${{ "%.2f"|format(total_sales) }}
+                </p>
+            </article>
+
+            <article class="product-card">
+                <h3>Cause Contributions</h3>
+                <p class="price">
+                    ${{ "%.2f"|format(total_contributions) }}
+                </p>
+            </article>
+
+            <article class="product-card">
+                <h3>Stellafy Revenue</h3>
+                <p class="price">
+                    ${{ "%.2f"|format(total_revenue) }}
+                </p>
+            </article>
+
+        </div>
+
+        <!-- Display contributions for each social cause. -->
+        <h2>Contributions by Cause</h2>
+
+        <div class="causes-grid">
+            {% for cause, amount in cause_totals.items() %}
+                <article class="cause-card">
+                    <h3>{{ cause }}</h3>
+                    <p class="price">${{ "%.2f"|format(amount) }}</p>
+                </article>
+            {% endfor %}
+        </div>
+
+        <!-- Display recorded simulated transactions. -->
+        <h2>Transaction History</h2>
+
+        {% for transaction in transactions %}
+            <article class="product-card">
+                <p>Transaction #{{ transaction.id }}</p>
+                <p>Cause: {{ transaction.cause }}</p>
+                <p>
+                    Purchase:
+                    ${{ "%.2f"|format(transaction.total_cents / 100) }}
+                </p>
+                <p>
+                    Contribution:
+                    ${{ "%.2f"|format(transaction.contribution_cents / 100) }}
+                </p>
+            </article>
+        {% else %}
+            <p>No simulated transactions recorded yet.</p>
+        {% endfor %}
+
+        <a href="{{ url_for('home') }}" class="shop-button">
+            Return to Store
+        </a>
+
+    </main>
+</body>
+</html>
