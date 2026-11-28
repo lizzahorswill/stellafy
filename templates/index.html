@@ -1,241 +1,87 @@
 <!DOCTYPE html>
-<!-- STELLAFY: Homepage and product catalogue -->
 <html lang="en">
-
 <head>
-    <!-- Set character encoding and responsive screen settings. -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Browser tab title. -->
-    <title>Stellafy | Small Purchases, Brighter Futures</title>
-
-    <!-- Connect the existing CSS stylesheet. -->
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop Stellafy Originals and discover independent makers while supporting causes you care about.">
+  <title>Stellafy | Small Purchases. Brighter Futures.</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="{{ url_for('home') }}" aria-label="Stellafy homepage"><span class="brand-star" aria-hidden="true">✦</span> Stellafy</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#products">Shop</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#causes">Our Impact</a>
+        <a href="{{ url_for('dashboard') }}">Analytics</a>
+      </nav>
+      <a class="cart-link" href="{{ url_for('view_cart') }}" aria-label="View shopping cart">🛒 <span>Cart</span></a>
+    </div>
+  </header>
 
-    <!-- ========================================
-         NAVIGATION BAR
-         ======================================== -->
-    <nav class="navbar">
-
-        <!-- Stellafy brand name. -->
-        <h2 class="logo">✦ Stellafy</h2>
-
-        <!-- Links to the different website sections. -->
-        <div class="nav-links">
-            <a href="{{ url_for('home') }}">Home</a>
-            <a href="#products">Products</a>
-            <a href="#causes">Causes</a>
-            <a href="{{ url_for('view_cart') }}">Cart 🛒</a>
-            <!-- Open the sales and social impact dashboard. -->
-            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+  <main>
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="eyebrow">SMALL PURCHASES. BRIGHTER FUTURES.</span>
+        <h1 id="hero-title">Shop with <span>Purpose.</span></h1>
+        <p>Discover everyday favorites and independent makers. Each simulated purchase can help a cause you care about.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#products">Shop Now <span aria-hidden="true">→</span></a>
+          <a class="button button-outline" href="#marketplace">Explore Marketplace</a>
         </div>
-
-    </nav>
-
-
-    <!-- ========================================
-         MAIN WEBSITE CONTENT
-         ======================================== -->
-    <main>
-
-        <!-- HERO SECTION: Introduce Stellafy. -->
-        <section class="hero">
-
-            <h1>Welcome to Stellafy!</h1>
-
-            <p>Small purchases. Brighter futures.</p>
-
-            <h2>Shop With Purpose</h2>
-
-            <p>
-                Every purchase can help support education,
-                protect the environment, and strengthen communities.
-            </p>
-
-            <!-- Jump directly to the products section. -->
-            <a href="#products" class="shop-button">
-                Explore Products
-            </a>
-
-        </section>
-
-
-        <!-- ========================================
-             PRODUCT CATALOGUE
-             ======================================== -->
-        <section id="products" class="products-section">
-
-            <h2>Explore Our Products</h2>
-
-            <p>
-                Shop everyday essentials and support meaningful causes.
-            </p>
-
-            <!-- CSS Grid arranges the six product cards. -->
-            <div class="product-grid">
-
-                <!-- PRODUCT 1: Reusable Water Bottle -->
-                <article class="product-card">
-                    <h3>Reusable Water Bottle</h3>
-
-                    <p>A reusable bottle for everyday hydration.</p>
-
-                    <p class="price">$25.00</p>
-
-                    <!-- Send product ID 1 to Flask. -->
-                    <form action="{{ url_for('add_to_cart', product_id=1) }}"
-                          method="POST">
-                        <button type="submit">Add to Cart</button>
-                    </form>
-                </article>
-
-
-                <!-- PRODUCT 2: Reusable Shopping Bag -->
-                <article class="product-card">
-                    <h3>Reusable Shopping Bag</h3>
-
-                    <p>A durable bag for everyday shopping.</p>
-
-                    <p class="price">$15.00</p>
-
-                    <!-- Send product ID 2 to Flask. -->
-                    <form action="{{ url_for('add_to_cart', product_id=2) }}"
-                          method="POST">
-                        <button type="submit">Add to Cart</button>
-                    </form>
-                </article>
-
-
-                <!-- PRODUCT 3: Eco-Friendly Notebook -->
-                <article class="product-card">
-                    <h3>Eco-Friendly Notebook</h3>
-
-                    <p>A notebook made with recycled paper.</p>
-
-                    <p class="price">$12.00</p>
-
-                    <!-- Send product ID 3 to Flask. -->
-                    <form action="{{ url_for('add_to_cart', product_id=3) }}"
-                          method="POST">
-                        <button type="submit">Add to Cart</button>
-                    </form>
-                </article>
-
-
-                <!-- PRODUCT 4: Ceramic Coffee Mug -->
-                <article class="product-card">
-                    <h3>Ceramic Coffee Mug</h3>
-
-                    <p>A reusable mug for your favourite drinks.</p>
-
-                    <p class="price">$20.00</p>
-
-                    <!-- Send product ID 4 to Flask. -->
-                    <form action="{{ url_for('add_to_cart', product_id=4) }}"
-                          method="POST">
-                        <button type="submit">Add to Cart</button>
-                    </form>
-                </article>
-
-
-                <!-- PRODUCT 5: Cotton Tote Bag -->
-                <article class="product-card">
-                    <h3>Cotton Tote Bag</h3>
-
-                    <p>A lightweight bag for books and groceries.</p>
-
-                    <p class="price">$18.00</p>
-
-                    <!-- Send product ID 5 to Flask. -->
-                    <form action="{{ url_for('add_to_cart', product_id=5) }}"
-                          method="POST">
-                        <button type="submit">Add to Cart</button>
-                    </form>
-                </article>
-
-
-                <!-- PRODUCT 6: Bamboo Desk Organizer -->
-                <article class="product-card">
-                    <h3>Bamboo Desk Organizer</h3>
-
-                    <p>Keep your study space neat and organized.</p>
-
-                    <p class="price">$30.00</p>
-
-                    <!-- Send product ID 6 to Flask. -->
-                    <form action="{{ url_for('add_to_cart', product_id=6) }}"
-                          method="POST">
-                        <button type="submit">Add to Cart</button>
-                    </form>
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================================
-             SOCIAL CAUSES
-             ======================================== -->
-        <section id="causes" class="causes-section">
-
-            <h2>Choose a Cause That Matters</h2>
-
-            <p>
-                Every purchase can help create a brighter future.
-            </p>
-
-            <div class="causes-grid">
-
-                <!-- CAUSE 1: Education -->
-                <article class="cause-card">
-                    <h3>📚 Education for All</h3>
-
-                    <p>
-                        Help improve access to educational resources
-                        and learning opportunities.
-                    </p>
-                </article>
-
-
-                <!-- CAUSE 2: Environment -->
-                <article class="cause-card">
-                    <h3>🌱 Protect Our Planet</h3>
-
-                    <p>
-                        Support environmental protection
-                        and sustainable practices.
-                    </p>
-                </article>
-
-
-                <!-- CAUSE 3: Community -->
-                <article class="cause-card">
-                    <h3>🤝 Stronger Communities</h3>
-
-                    <p>
-                        Support initiatives that strengthen
-                        local communities.
-                    </p>
-                </article>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER: Information displayed at the bottom of the website. -->
-    <footer style="text-align: center; padding: 25px;">
-        <p>© 2026 Stellafy. Small purchases. Brighter futures.</p>
-        <p>This is a demonstration platform. All purchases are simulated.</p>
-    </footer>
-
+        <p class="hero-note">A student project · All orders and contributions are simulated</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-glow"></div>
+        <img src="{{ url_for('static', filename='images/hero-products.svg') }}" alt="" width="590" height="410">
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="How Stellafy works">
+      <div class="container benefits-grid">
+        <div class="benefit"><span class="benefit-icon" aria-hidden="true">♧</span><div><h2>Shop</h2><p>Find Stellafy Originals and everyday products you'll love.</p></div></div>
+        <div class="benefit"><span class="benefit-icon" aria-hidden="true">▤</span><div><h2>Marketplace</h2><p>Explore independent sellers and purpose-driven brands.</p></div></div>
+        <div class="benefit"><span class="benefit-icon" aria-hidden="true">♡</span><div><h2>Give Back</h2><p>Choose a cause that benefits from each simulated purchase.</p></div></div>
+        <div class="benefit"><span class="benefit-icon" aria-hidden="true">▥</span><div><h2>See the Impact</h2><p>Explore simulated contributions on the analytics dashboard.</p></div></div>
+      </div>
+    </section>
+
+    <section id="products" class="content-section container" aria-labelledby="products-heading">
+      <div class="section-heading"><div><span class="eyebrow">DISCOVER WHAT'S NEW</span><h2 id="products-heading">Featured Products</h2><p>From Stellafy Originals and independent marketplace sellers.</p></div><a class="section-link" href="#marketplace">Meet our sellers <span aria-hidden="true">→</span></a></div>
+      <div class="product-grid">
+        {% for product in products %}
+        <article class="product-card">
+          <div class="product-image"><img src="{{ url_for('static', filename='images/' ~ product.image) }}" alt="{{ product.name }}" loading="lazy"><span class="product-tag {{ 'tag-original' if product.type == 'original' else 'tag-market' }}">{{ '✦ Stellafy Original' if product.type == 'original' else '▤ Marketplace' }}</span></div>
+          <div class="product-details"><h3>{{ product.name }}</h3><p class="seller-name">Sold by {{ product.seller }}</p><p class="product-price">${{ '%.2f'|format(product.price) }}</p>
+          <form action="{{ url_for('add_to_cart', product_id=product.id) }}" method="POST"><button class="button button-add" type="submit">＋ Add to Cart</button></form></div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section id="marketplace" class="content-section container marketplace-section" aria-labelledby="marketplace-heading">
+      <div class="section-heading"><div><span class="eyebrow">DISCOVER INDEPENDENT MAKERS</span><h2 id="marketplace-heading">Marketplace Stores</h2><p>Meet the small businesses behind our sample marketplace products.</p></div></div>
+      <div class="seller-grid">
+        <div class="seller-card"><span class="seller-avatar lavender" aria-hidden="true">✿</span><div><h3>Good Earth Goods</h3><p>Reusable everyday essentials</p></div></div>
+        <div class="seller-card"><span class="seller-avatar peach" aria-hidden="true">✦</span><div><h3>Paper & Pine</h3><p>Thoughtful stationery</p></div></div>
+        <div class="seller-card"><span class="seller-avatar sage" aria-hidden="true">☘</span><div><h3>Riverbend Studio</h3><p>Handcrafted home goods</p></div></div>
+      </div>
+      <p class="market-note">Sample sellers for this learning project. Seller accounts and onboarding are not implemented yet.</p>
+    </section>
+
+    <section id="causes" class="content-section container causes-section" aria-labelledby="causes-heading">
+      <div class="section-heading"><div><span class="eyebrow">MAKE EVERY PURCHASE MEANINGFUL</span><h2 id="causes-heading">Our Causes</h2><p>Choose where your simulated contribution goes at checkout.</p></div></div>
+      <div class="causes-grid">
+        <article class="cause-card cause-education"><span class="cause-icon" aria-hidden="true">✎</span><h3>Education</h3><p>Expand access to learning and opportunity.</p></article>
+        <article class="cause-card cause-environment"><span class="cause-icon" aria-hidden="true">❧</span><h3>Environment</h3><p>Support a healthier, cleaner planet.</p></article>
+        <article class="cause-card cause-community"><span class="cause-icon" aria-hidden="true">♡</span><h3>Community</h3><p>Help communities grow stronger together.</p></article>
+      </div>
+    </section>
+
+    <section class="impact-banner container" aria-labelledby="impact-heading"><div><span class="eyebrow">GOOD CHOICES ADD UP</span><h2 id="impact-heading">Small purchases.<br>Brighter futures.</h2><p>See how simulated shopping activity is reflected in our impact dashboard.</p></div><a class="button button-light" href="{{ url_for('dashboard') }}">View Analytics →</a></section>
+  </main>
+  <footer class="footer"><div class="container footer-inner"><a class="brand" href="{{ url_for('home') }}"><span class="brand-star" aria-hidden="true">✦</span> Stellafy</a><p>© 2026 Stellafy · Demo storefront — no real purchases or donations.</p></div></footer>
 </body>
 </html>

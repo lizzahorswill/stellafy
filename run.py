@@ -57,12 +57,12 @@ with app.app_context():
 # Each product has a unique ID, name, and price.
 # All products and transactions are simulated.
 PRODUCTS = [
-    {"id": 1, "name": "Reusable Water Bottle", "price": 25.00},
-    {"id": 2, "name": "Reusable Shopping Bag", "price": 15.00},
-    {"id": 3, "name": "Eco-Friendly Notebook", "price": 12.00},
-    {"id": 4, "name": "Ceramic Coffee Mug", "price": 20.00},
-    {"id": 5, "name": "Cotton Tote Bag", "price": 18.00},
-    {"id": 6, "name": "Bamboo Desk Organizer", "price": 30.00}
+    {"id": 1, "name": "Reusable Water Bottle", "price": 25.00, "type": "original", "seller": "Stellafy", "image": "bottle.svg"},
+    {"id": 2, "name": "Reusable Shopping Bag", "price": 15.00, "type": "marketplace", "seller": "Good Earth Goods", "image": "bag.svg"},
+    {"id": 3, "name": "Eco-Friendly Notebook", "price": 12.00, "type": "marketplace", "seller": "Paper & Pine", "image": "notebook.svg"},
+    {"id": 4, "name": "Ceramic Coffee Mug", "price": 20.00, "type": "marketplace", "seller": "Riverbend Studio", "image": "mug.svg"},
+    {"id": 5, "name": "Cotton Tote Bag", "price": 18.00, "type": "original", "seller": "Stellafy", "image": "tote.svg"},
+    {"id": 6, "name": "Bamboo Desk Organizer", "price": 30.00, "type": "original", "seller": "Stellafy", "image": "organizer.svg"}
 ]
 
 # Define the social causes customers can support.
